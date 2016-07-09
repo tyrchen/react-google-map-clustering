@@ -16,6 +16,7 @@ module.exports = {
           `sass-loader?precision=10&indentedSyntax=sass`,
         ],
         include: [
+          path.join(__dirname, '../example'),
           path.join(__dirname, '../src'),
         ],
       },
@@ -28,6 +29,7 @@ module.exports = {
         ],
         include: [
           path.join(__dirname, '../src'),
+          path.join(__dirname, '../example'),
           path.join(__dirname, '../node_modules'),
         ],
       },

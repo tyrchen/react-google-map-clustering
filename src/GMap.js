@@ -8,12 +8,12 @@ import GoogleMapReact from 'google-map-react';
 import ClusterMarker from './markers/ClusterMarker';
 import SimpleMarker from './markers/SimpleMarker';
 import supercluster from 'points-cluster';
-import { susolvkaCoords, markersData } from './data/fakeData';
+// import { susolvkaCoords, markersData } from './data/fakeData';
 
 export const gMap = ({
   style, hoverDistance, options,
-  mapProps: { center, zoom },
-  onChange, onChildMouseEnter, onChildMouseLeave,
+  center, zoom, markers,
+  onChange, onChildMouseEnter, onChildMouseLeave, onChildClick,
   clusters,
 }) => (
   <GoogleMapReact
@@ -25,6 +25,7 @@ export const gMap = ({
     onChange={onChange}
     onChildMouseEnter={onChildMouseEnter}
     onChildMouseLeave={onChildMouseLeave}
+    onChildClick={onChildClick}
   >
     {
       clusters
@@ -56,7 +57,7 @@ export const gMapHOC = compose(
   withState(
     'markers',
     'setMarkers',
-    markersData
+    props => props.markers
   ),
   withState(
     'hoveredMarkerId',
@@ -66,10 +67,7 @@ export const gMapHOC = compose(
   withState(
     'mapProps',
     'setMapProps',
-    {
-      center: susolvkaCoords,
-      zoom: 10,
-    }
+    props => ({ center: props.center, zoom: props.zoom })
   ),
   // describe events
   withHandlers({
@@ -77,8 +75,9 @@ export const gMapHOC = compose(
       setMapProps({ center, zoom, bounds });
     },
 
-    onChildMouseEnter: ({ setHoveredMarkerId }) => (hoverKey, { id }) => {
-      setHoveredMarkerId(id);
+    onChildMouseEnter: ({ setHoveredMarkerId }) => (hoverKey, data) => {
+      console.log(data);
+      setHoveredMarkerId(data.id);
     },
 
     onChildMouseLeave: ({ setHoveredMarkerId }) => (/* hoverKey, childProps */) => {

@@ -6,6 +6,7 @@ export const susolvkaCoords = { lat: 60.814305, lng: 47.051773 };
 export const markersData = [...Array(TOTAL_COUNT)].fill(0) // fill(0) for loose mode
   .map((__, index) => ({
     id: index,
+    name: `hello ${index}`,
     lat: susolvkaCoords.lat +
       0.01 * index *
       Math.sin(30 * Math.PI * index / 180) *

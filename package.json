@@ -1,14 +1,14 @@
 {
-  "name": "google-map-clustering-example",
-  "version": "0.1.0",
-  "description": "clustering example for google-map-react",
+  "name": "react-google-map-clustering",
+  "version": "0.2.0",
+  "description": "A simple clustering fork for google-map-react",
   "main": "index.js",
   "scripts": {
-    "start": "kotatsu serve --port 4000 --config ./config/loaders.js --presets es2015,stage-0,react,react-hmre ./src/Main.js",
-    "build": "NODE_ENV=production kotatsu build client --minify --config ./config/loaders.js --presets es2015,stage-0,react ./src/Main.js -o build",
+    "start": "kotatsu serve --port 4000 --config ./config/loaders.js --presets es2015,stage-0,react,react-hmre ./example/Main.js",
+    "build": "NODE_ENV=production kotatsu build client --minify --config ./config/loaders.js --presets es2015,stage-0,react ./example/Main.js -o build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Ivan Starkov",
+  "author": "Ivan Starkov, Tyr Chen",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.3.1",

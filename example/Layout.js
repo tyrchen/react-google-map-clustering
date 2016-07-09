@@ -2,9 +2,19 @@ import React, { Component } from 'react';
 import compose from 'recompose/compose';
 import defaultProps from 'recompose/defaultProps';
 import layoutStyles from './Layout.sass';
-import GMap from './GMap';
+import GMap from '../src/GMap';
+import { susolvkaCoords, markersData } from './data/fakeData';
+
 // for hmr to work I need the first class to extend Component
 export class Layout extends Component {
+  constructor() {
+    super();
+    this.enter = this.enter.bind(this);
+  }
+  enter(e) {
+    console.log(e);
+    alert('entered!');
+  }
   render() {
     const { styles: { layout, header, main, footer, logo } } = this.props;
     return (
@@ -20,7 +30,7 @@ export class Layout extends Component {
           </div>
         </header>
         <main className={main}>
-          <GMap />
+          <GMap onChildClick={this.enter} center={{ lat: 60.814305, lng: 47.051773 }} zoom={5} markers={markersData} />
         </main>
         <footer className={footer}>
           <div>
