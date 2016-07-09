@@ -1,11 +1,11 @@
 {
   "name": "react-google-map-clustering",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A simple clustering fork for google-map-react",
   "main": "index.js",
   "scripts": {
     "start": "kotatsu serve --port 4000 --config ./config/loaders.js --presets es2015,stage-0,react,react-hmre ./example/Main.js",
-    "build": "NODE_ENV=production kotatsu build client --minify --config ./config/loaders.js --presets es2015,stage-0,react ./example/Main.js -o build",
+    "postinstall": "NODE_ENV=production kotatsu build client --minify --config ./config/loaders.js --presets es2015,stage-0,react ./src/Gmap.js -o build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ivan Starkov, Tyr Chen",

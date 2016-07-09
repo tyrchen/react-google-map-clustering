@@ -1,3 +1,3 @@
-const GMap = require('./src/GMap');
+const GMap = require('./build/bundle');
 
-export GMap;
+module.exports = GMap;
